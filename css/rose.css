@@ -1,0 +1,158 @@
+/* Rose Window Maker */
+
+.content {
+  max-width: 1120px;
+}
+#rose .s-glass,
+#rose .s-bars,
+#rose .s-cons {
+  transition: none;
+}
+/* compass work: thin lines, compass points as small holes */
+#cons {
+  fill: none;
+  pointer-events: none;
+}
+#cons circle,
+#cons path,
+#cons line {
+  stroke-width: 1.2;
+}
+#cons .pt {
+  stroke: none;
+}
+#cons.on-glass circle,
+#cons.on-glass path,
+#cons.on-glass line {
+  stroke: #ffe08a;
+  opacity: 0.75;
+}
+#cons.on-glass .pt {
+  fill: #ffe08a;
+}
+#cons.on-paper circle,
+#cons.on-paper path,
+#cons.on-paper line {
+  stroke: #4f7cab;
+}
+#cons.on-paper .pt {
+  fill: #b3261e;
+}
+#cons .faint {
+  stroke-dasharray: 5 4;
+}
+#cons .s-cons:not(.now) {
+  opacity: 0.45;
+}
+
+/* the caption under the window: the step and the mason's instruction */
+.panel.under {
+  margin-top: 12px;
+}
+.caption .cap-head {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.caption .cap-head span {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.75;
+}
+.caption .cap-head strong {
+  color: var(--card-strong);
+}
+#step-text {
+  margin: 6px 0 12px;
+  line-height: 1.5;
+  min-height: 4.5em;
+  font-size: 0.95em;
+}
+.scrubber {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.scrubber button {
+  margin: 0;
+}
+.scrubber input[type="range"] {
+  flex: 1;
+  min-width: 60px;
+  padding: 0;
+  accent-color: var(--accent, #ffa500);
+  background: none;
+  border: none;
+}
+.scrubber .ghost {
+  padding: 6px 12px;
+}
+
+/* the recipe */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.step {
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.step.sel {
+  border-color: var(--accent, #ffa500);
+  padding-bottom: 8px;
+}
+.step.later {
+  opacity: 0.55;
+}
+.step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.step-head button {
+  margin: 0;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 4px 2px;
+  font-size: 0.92em;
+  text-align: left;
+}
+.step-head button:hover,
+.step-head button:focus {
+  background: none;
+  text-decoration: underline;
+}
+.step.sel .step-name {
+  font-weight: bold;
+  color: var(--card-strong);
+}
+.step-del {
+  opacity: 0.6;
+}
+.step-del:hover {
+  opacity: 1;
+}
+.step .ctl {
+  margin: 6px 0 4px;
+}
+.step .opt {
+  margin: 6px 0 2px;
+}
+.chips.tight {
+  gap: 6px;
+}
+.chips.tight button {
+  min-width: 2.6em;
+  padding: 5px 8px;
+}
+.panel h3 + .chips + h3 {
+  margin-top: 4px;
+}
+/* evol-blue: the step names on the bright card */
+html[data-theme="evol-blue"] .step-head button {
+  color: white;
+}

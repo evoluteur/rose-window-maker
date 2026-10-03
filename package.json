@@ -1,0 +1,30 @@
+{
+  "name": "rose-window-maker",
+  "version": "1.0.0",
+  "description": "Rose Window Maker: build a Gothic rose window step by step with compass and straightedge, like a medieval mason: divide the circle, raise equilateral arches, set oculi and foils, then download it as SVG or PNG.",
+  "repository": "github:evoluteur/rose-window-maker",
+  "homepage": "https://evoluteur.github.io/rose-window-maker/",
+  "copyright": "(c) 2026 Olivier Giulieri",
+  "author": "Olivier Giulieri (https://evoluteur.github.io/)",
+  "license": "MIT",
+  "keywords": [
+    "rose-window",
+    "gothic-tracery",
+    "tracery",
+    "gothic-architecture",
+    "compass-and-straightedge",
+    "foils",
+    "trefoil",
+    "quatrefoil",
+    "stained-glass",
+    "sacred-geometry",
+    "esoterica",
+    "svg",
+    "generator",
+    "pwa",
+    "javascript"
+  ],
+  "scripts": {
+    "sync:themes": "sh scripts/sync-omg-themes.sh"
+  }
+}

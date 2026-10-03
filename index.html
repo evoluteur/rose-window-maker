@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-063933E3C2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-063933E3C2");
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rose Window Maker: Gothic Tracery with Compass and Straightedge</title>
+    <meta
+      name="description"
+      content="Rose Window Maker: build a Gothic rose window step by step with compass and straightedge, like a medieval mason: divide the circle, raise equilateral arches, set oculi and foils, then download it as SVG or PNG."
+    />
+    <meta
+      name="keywords"
+      content="rose window, gothic tracery, tracery, rose window generator, gothic architecture, compass and straightedge, foils, trefoil, quatrefoil, stained glass, chartres, notre-dame, sacred geometry, medieval mason"
+    />
+    <meta name="author" content="Olivier Giulieri" />
+    <link rel="canonical" href="https://evoluteur.github.io/rose-window-maker/" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+    <meta name="theme-color" content="#1a212d" />
+    <meta property="og:site_name" content="Evoluteur" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Rose Window Maker" />
+    <meta
+      property="og:description"
+      content="Build Gothic tracery step by step with compass and straightedge, like a medieval mason."
+    />
+    <meta property="og:url" content="https://evoluteur.github.io/rose-window-maker/" />
+    <meta
+      property="og:image"
+      content="https://evoluteur.github.io/rose-window-maker/rose-window-maker.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Overpass"
+    />
+    <link id="omg-core-css" rel="stylesheet" href="css/core.css" />
+    <script>
+      // Themes (dark, light, evol-blue) are copies of omg-themes (npm run sync:themes);
+      // set OMG_THEMES_BASE to "https://evoluteur.github.io/omg-themes/" to link the hosted ones instead.
+      window.OMG_THEMES_BASE = "";
+      window.OMG_DEFAULT_THEME = "dark";
+      (function () {
+        var t = window.OMG_DEFAULT_THEME;
+        try {
+          t = localStorage.getItem("omg-theme") || t;
+        } catch (e) {}
+        if (t !== "dark" && t !== "light" && t !== "evol-blue")
+          t = window.OMG_DEFAULT_THEME;
+        document.documentElement.setAttribute("data-theme", t);
+        // written here (not in the markup) so the saved theme loads before first paint
+        document.write(
+          '<link id="omg-theme-css" rel="stylesheet" href="' +
+            window.OMG_THEMES_BASE +
+            "css/themes/" +
+            t +
+            "/" +
+            t +
+            '.css" />',
+        );
+      })();
+    </script>
+    <link id="omg-density-css" rel="stylesheet" href="css/densities.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/rose.css" />
+
+    <script src="js/omg.js"></script>
+    <script src="js/rose.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        addEventListener("load", () =>
+          navigator.serviceWorker.register("sw.js"),
+        );
+      }
+    </script>
+  </head>
+
+  <body
+    onload="
+      setupPage('home');
+      initRose();
+    "
+    id="omg-body"
+  >
+    <div id="omg-header">
+      <h1>Rose Window Maker</h1>
+      <div id="omg-header-tools">
+        <div id="omg-theme-picker"></div>
+        <a
+          id="omg-github"
+          href="https://github.com/evoluteur/rose-window-maker"
+          target="_blank"
+          rel="noopener"
+          title="Rose Window Maker on GitHub"
+          aria-label="Rose Window Maker on GitHub"
+          ><svg viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+            /></svg
+        ></a>
+      </div>
+    </div>
+    <noscript
+      ><p class="tagline">
+        Rose Window Maker draws with JavaScript. Enable it to build a window.
+      </p></noscript
+    >
+    <h2>Gothic tracery, with compass and straightedge</h2>
+    <div class="content">
+      <p class="tagline">
+        The masons who built Chartres and Notre-Dame drew their rose windows
+        full size on a plaster tracing floor, with nothing but a compass, a
+        straightedge and a cord. Build one the same way, one construction at
+        a time: divide the circle, raise the Gothic arches, set the oculi and
+        the foils, and the symmetry repeats each step around the center. Then
+        watch the whole window being built.
+      </p>
+
+      <div class="layout">
+        <div class="stage">
+          <div id="rose" class="canvas-box" aria-label="Rose window"></div>
+          <div class="panel under caption" aria-live="polite">
+            <div class="cap-head">
+              <span id="step-num"></span>
+              <strong id="step-title"></strong>
+            </div>
+            <p id="step-text"></p>
+            <div class="scrubber">
+              <button type="button" id="prev" class="ghost" aria-label="Previous step">&#9664;</button>
+              <input type="range" id="scrub" min="1" max="2" step="1" aria-label="Step" />
+              <button type="button" id="next" class="ghost" aria-label="Next step">&#9654;</button>
+              <button type="button" id="build">Build it</button>
+            </div>
+            <div class="ctl" style="margin: 12px 0 0">
+              <label for="speed">Building pace</label>
+              <input type="range" id="speed" min="1" max="10" step="1" />
+            </div>
+          </div>
+          <div class="panel under">
+            <h3>Save</h3>
+            <div class="btns">
+              <button type="button" id="export-png">Download PNG</button>
+              <button type="button" id="export-svg" class="ghost">
+                Download SVG
+              </button>
+            </div>
+            <p class="note" style="margin: 10px 0 0">
+              The address of the page keeps this window, to share it.
+            </p>
+          </div>
+        </div>
+
+        <div class="side">
+          <div class="panel">
+            <h3>Start from</h3>
+            <div
+              class="chips"
+              id="preset-chips"
+              role="group"
+              aria-label="Windows"
+            ></div>
+            <h3>Divide the circle into</h3>
+            <div
+              class="chips tight"
+              id="div-chips"
+              role="group"
+              aria-label="Divisions"
+            ></div>
+          </div>
+
+          <div class="panel">
+            <h3>Steps</h3>
+            <div id="steps" class="steps"></div>
+            <h3 style="margin-top: 14px">Add after the selected step</h3>
+            <div
+              class="chips"
+              id="add-chips"
+              role="group"
+              aria-label="Add a step"
+            ></div>
+          </div>
+
+          <div class="panel">
+            <h3>Look</h3>
+            <div
+              class="chips"
+              id="view-chips"
+              role="group"
+              aria-label="View"
+            ></div>
+            <div
+              class="chips"
+              id="palette-chips"
+              role="group"
+              aria-label="Glass colors"
+            ></div>
+            <div class="ctl">
+              <label for="stone">Stone bars</label>
+              <input type="range" id="stone" min="0" max="100" step="5" />
+            </div>
+            <h3>Compass work</h3>
+            <div
+              class="chips"
+              id="cons-chips"
+              role="group"
+              aria-label="Construction lines"
+            ></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="layout info">
+        <div class="side wide">
+          <div class="panel">
+            <h3>The equilateral arch</h3>
+            <p class="note">
+              Open the compass to the width of an opening and, from each
+              side, strike an arc through the other: the two arcs meet at the
+              point of the Gothic arch. Its two halves and its width make an
+              equilateral triangle. Split the opening in two and do it again
+              with half the width: one more stroke of the compass, from the
+              same point, finds the circle that touches all three arches.
+              That is the core of the "geometric" tracery of the 13th century.
+            </p>
+          </div>
+        </div>
+        <div class="side wide">
+          <div class="panel">
+            <h3>Foils and cusps</h3>
+            <p class="note">
+              A foil is a lobe, like a leaf (<em>folium</em>): three make a
+              trefoil, four a quatrefoil, and so on. Here they are circles
+              set inside a circle, touching it from inside and cutting each
+              other. The points where the lobes meet are the cusps. A rose
+              is just these few moves repeated around a center: circles
+              divided, arches raised, foils set in the circles. Sacred
+              geometry made into stone and light.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>
+          The code of this page is
+          <a href="https://github.com/evoluteur/rose-window-maker">Open source</a>
+          with MIT license.
+        </p>
+        <p>
+          Had fun browsing the app?
+          <a href="https://github.com/sponsors/evoluteur"
+            >Buy me a coffee by becoming a sponsor</a
+          >.
+        </p>
+        <p>
+          You may also like
+          <a href="https://evoluteur.github.io/sacred-geometry/"
+            >Sacred Geometry</a
+          >,
+          <a href="https://evoluteur.github.io/mandala-maker/">Mandala Maker</a
+          >,
+          <a href="https://evoluteur.github.io/labyrinth-maker/"
+            >Labyrinth Maker</a
+          >, and
+          <a href="https://evoluteur.github.io/celtic-knot-maker/"
+            >Celtic Knot Maker</a
+          >. See them all on
+          <a href="https://evoluteur.github.io/esoterica.html">Esoterica</a>.
+        </p>
+        <p class="copyright">
+          &#169; 2026
+          <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
